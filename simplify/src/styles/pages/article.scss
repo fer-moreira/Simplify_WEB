@@ -1,0 +1,100 @@
+@import "../../styles/abstracts/mixins";
+
+.article {
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    &__content {
+
+        &__branding {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 10px;
+
+            &__back {
+                padding: 0px 20px 0px 0px;
+                transition: all 200ms;
+
+                &--icon {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+
+                &--image {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 5px;
+                }
+                &--name {
+                    font-size: 20px;
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: #474747;
+                }
+            }
+        }
+
+        &__heading {
+            &__title {
+                &--text {
+                    margin: 10px;
+                    font-size: 33px;
+                    color: black;
+                }
+
+                &--image {
+                    height: 100%;
+                }
+            }
+
+
+            &__pubdate {
+                margin-top: 0px;
+                margin-bottom: 25px;
+                margin-left: 10px;
+                margin-right: 10px;
+
+                &--text {
+                    font-size: 20px;
+                    font-weight: 400;
+                    display: block;
+                    color: gray;
+                }
+            }
+        }
+
+        &__paragraphs {
+            box-sizing: border-box;
+
+            &--text {
+                margin-top: 0;
+                margin-bottom: 1.24em;
+                margin-left: 15px;
+                margin-right: 15px;
+                line-height: 1.5;
+
+
+                color: #444443;
+                font-size: 22px;
+            }
+
+            &--image {
+                width: 100%;
+                margin: 30px 0px;
+            }
+        }
+    }
+}

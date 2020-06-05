@@ -1,0 +1,34 @@
+@import "../abstracts/mixins";
+
+.loading {
+    height: 100vh;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    &__container {
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        grid-template-rows: auto 50% auto;
+
+        &__dummy {
+            box-sizing: border-box;
+
+            &.first {
+                padding: 0px 0px;
+            }
+
+            padding: 5px 10px;
+
+            &--placeholder {
+                @include loading;
+
+                border-radius: 20px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

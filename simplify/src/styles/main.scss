@@ -1,0 +1,52 @@
+@import "../styles/abstracts/variables";
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none;
+} 
+
+body {
+    margin: 0;
+   
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p, button, span {
+    font-family: $global-font;
+}
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"],
+input[type="file"] > input[type="button"] {
+    &::-moz-focus-inner {
+        border: none
+    }
+}
+
+.root {
+    min-height: 100vh;
+    width: 100%;
+
+    .content {
+        display: flex;
+        justify-content: center;
+
+        min-height: 100vh;
+        width: 100%;
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+
+            .master {
+                height: 100%;
+            }
+        }
+    }
+}
