@@ -14,6 +14,7 @@ function Routes () {
     <Router>
       <Switch>
         <Route path="/" exact component={Homepage}/>
+        <Route path="/*" exact component={Homepage}/>
       </Switch>
     </Router>
   );

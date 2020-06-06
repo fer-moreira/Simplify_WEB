@@ -11,7 +11,7 @@
         width: 100%;
 
         display: grid;
-        grid-template-rows: auto 50% auto;
+        grid-template-rows: auto 30% auto;
 
         &__dummy {
             box-sizing: border-box;
@@ -21,6 +21,13 @@
             }
 
             padding: 5px 10px;
+
+            &--imageholder {
+                @include loading;
+
+                height: 100%;
+                width: 100%;
+            }
 
             &--placeholder {
                 @include loading;

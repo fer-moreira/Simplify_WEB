@@ -31,14 +31,14 @@ class Article extends Component {
           <div className="article__content">
             <div className="article__content__branding">
               <a href="/" className="article__content__branding__back">
-                <img className="article__content__branding__back--icon" src={backIcon} />
+                <img className="article__content__branding__back--icon" src={backIcon} alt="Back icon from back button" />
               </a>
               <div className="article__content__branding__content">
-                <img className="article__content__branding__content--image" src={this.state.data.site_favicon} />
+                <img className="article__content__branding__content--image" src={this.state.data.site_favicon} alt="Article site favicon" />
                 <span className="article__content__branding__content--name">{this.state.data.site_name}</span>
               </div>
               <a href="/" className="article__content__branding__back">
-                <img className="article__content__branding__back--icon" src={shareIcon} />
+                <img className="article__content__branding__back--icon" src={shareIcon} alt="Share icon from share button" />
               </a>
             </div>
             <div className="article__content__heading">
@@ -57,9 +57,9 @@ class Article extends Component {
               {
                 this.state.data.article_body.map((value, index) => (
                     value.is_img ? (
-                      <img className="article__content__paragraphs--image" src={value.content} alt={value.alt} />
+                      <img className="article__content__paragraphs--image" src={value.content} alt={value.alt} key={index}/>
                     ):(
-                      <p className="article__content__paragraphs--text">{value.content}</p>
+                      <p className="article__content__paragraphs--text" key={index}>{value.content}</p>
                     )
                 ))
               }

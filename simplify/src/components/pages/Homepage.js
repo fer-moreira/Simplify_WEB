@@ -9,15 +9,23 @@ import "../../styles/components/_error.scss";
 
 
 class Homepage extends Component {
-  constructor() {
+  constructor(match) {
     super();
     this.state = {
       url: null,
       loading: false,
       error: false,
       loaded_article: false,
-      data: null
+      data: null,
+      params: match.match.params,
     };
+  }
+
+  componentDidMount () {
+    let ARTICLE_FROM_URL = this.state.params[0];
+    if (ARTICLE_FROM_URL != null) {
+      this.Simplify(ARTICLE_FROM_URL);
+    }
   }
 
   ChangedUrl(e) {
@@ -39,9 +47,12 @@ class Homepage extends Component {
     })
 
     var payload = new Headers();
-    payload.append("article-url", url)
+    payload.append("REACT_APP_ARTICLE_URL", url)
+    payload.append("REACT_APP_PARSER_KEY", `${process.env.REACT_APP_PARSER_KEY}`)
+    payload.append("REACT_APP_PARSER_USER", `${process.env.REACT_APP_PARSER_USER}`)
+    payload.append("REACT_APP_PARSER_PASSWORD", `${process.env.REACT_APP_PARSER_PASSWORD}`)
 
-    fetch(`https://simplifyjournal-api.herokuapp.com/parser/json`, {
+    fetch(`${process.env.REACT_APP_PARSER_ENDPOINT}`, {
       method: "GET",
       headers: payload,
       mode: "cors",
@@ -97,7 +108,7 @@ class Homepage extends Component {
                   </div>
                   <div className="homepage__container__actions">
                     <div className="homepage__container__actions__input">
-                      <input onChange={e => this.ChangedUrl(e)} id="url_input" className="homepage__container__actions__input--input" placeholder="Enter article to simplify" />
+                      <input autoComplete="off" onChange={e => this.ChangedUrl(e)} id="url_input" className="homepage__container__actions__input--input" placeholder="Enter article to simplify" />
                       <button onClick={e => this.ClearURLField()} className={`homepage__container__actions__input--clear ${this.state.url != null && 'active'}`}>X</button>
                     </div>
                     <button onClick={() => this.Simplify(this.state.url)} className={`homepage__container__actions--button ${this.state.url ? 'active' : 'hidden'}`}>SIMPLIFY</button>

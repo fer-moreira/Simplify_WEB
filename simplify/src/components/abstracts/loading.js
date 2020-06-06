@@ -18,10 +18,7 @@ class LoadingArticle extends Component {
                         <div className="loading__container__dummy--placeholder"></div>
                     </div>
                     <div className="loading__container__dummy first">
-                        <div className="loading__container__dummy--placeholder"></div>
-                    </div>
-                    <div className="loading__container__dummy">
-                        <div className="loading__container__dummy--placeholder"></div>
+                        <div className="loading__container__dummy--imageholder"></div>
                     </div>
                     <div className="loading__container__dummy">
                         <div className="loading__container__dummy--placeholder"></div>
