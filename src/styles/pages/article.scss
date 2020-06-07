@@ -5,6 +5,7 @@
     box-sizing: border-box;
 
     &__content {
+        @include up_animation;
 
         &__branding {
             height: 50px;

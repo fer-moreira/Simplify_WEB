@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Article from "../modules/Article";
+import Encrypt from "../modules/Encrypt";
 
 import LoadingArticle from "../abstracts/loading";
 import mug from "./public/cute_mug_sad.svg";
@@ -45,12 +46,11 @@ class Homepage extends Component {
     this.setState({
       loading: true
     })
-
+    let encoded = Encrypt(`${process.env.REACT_APP_PARSER_USER}__${process.env.REACT_APP_PARSER_PASSWORD}`, `${process.env.REACT_APP_PARSER_KEY}`);
+    
     var payload = new Headers();
-    payload.append("REACT_APP_ARTICLE_URL", url)
-    payload.append("REACT_APP_PARSER_KEY", `${process.env.REACT_APP_PARSER_KEY}`)
-    payload.append("REACT_APP_PARSER_USER", `${process.env.REACT_APP_PARSER_USER}`)
-    payload.append("REACT_APP_PARSER_PASSWORD", `${process.env.REACT_APP_PARSER_PASSWORD}`)
+    payload.append("ARTICLE_URL", url)
+    payload.append("X_ENC_KEY", encoded);
 
     fetch(`${process.env.REACT_APP_PARSER_ENDPOINT}`, {
       method: "GET",

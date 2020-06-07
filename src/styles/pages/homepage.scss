@@ -18,6 +18,8 @@
         margin: 0 auto;
         margin-bottom:10px;
 
+        @include up_animation;
+
         &__logo {
             &__texts {
                 display: flex;

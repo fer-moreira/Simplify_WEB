@@ -1,5 +1,37 @@
 @import "../abstracts/variables";
 
+
+@mixin up_animation {
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: initial;
+    animation-name: up_animation;
+    animation-timing-function: ease-in;
+}
+
+@keyframes up_animation {
+    0%{
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes up_animation {
+    0%{
+        opacity: 0%;
+        transform: translateY(50px);
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
+
 @mixin loading {
     animation-duration: 2s;
     animation-fill-mode: forwards;
